@@ -4,16 +4,13 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width:50%;
 }
 
-.slider {
-    /* display: none; */
-    visibility: hidden;
-}
 
 img {
-    width: 150px;
-    height: 200px;
+    width: 28   0px;
+    height: 400px;
 }
 
 .controls button {

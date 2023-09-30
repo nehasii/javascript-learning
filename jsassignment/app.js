@@ -1,24 +1,26 @@
-function toggle(){
-    let image = document.getElementById("image");
-    image.style.visibility = "hidden"
-    
+function toggle() {
+  let image = document.getElementById("image");
+  image.style.visibility = "hidden";
 }
 
-function toggleShow(){
-    let image = document.getElementById("image");
-    image.style.visibility = "visible";
+function toggleShow() {
+  let image = document.getElementById("image");
+  image.style.visibility = "visible";
 }
 
-function toggleHideShow(){
-    let tglbtn = document.getElementById("tglbtn")
-    let image2  = document.getElementById("image2")
-    // tglbtn.innerText = "hide"
-    // image2.style.visibility = "visible"
-    d3.toggle("#image2")
+let toggleState = false;
+
+function toggleHideShow() {
+  const tglbtn = document.getElementById("tglbtn");
+  const image2 = document.getElementById("image2");
+  if (toggleState === true) {
+    tglbtn.innerText = "show";
+    image2.style.visibility = "hidden";
+    toggleState = false;
+  } else {
+    tglbtn.innerText = "hide";
+    image2.style.visibility = "visible";
+    toggleState = true;
+  }
 }
-
-// let d3=document.getElementById("d3")
-// console.log(d3);
-// d3.toggle("#image2")
-
 

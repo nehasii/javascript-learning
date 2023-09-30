@@ -1,27 +1,22 @@
-const slides = document.querySelectorAll(".slider img");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
-let images = ["./image1.jpg","./image2.jpg","./image3.jpg","./image4.jpg","./image5.jpg"]
+let images = [
+  "./image1.jpg",
+  "./image2.jpg",
+  "./image3.jpg",
+  "./image4.jpg",
+  "./image5.jpg",
+];
 let currentSlide = 0;
-
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        if (i === index) {
-            slide.style.visibility = "visible";
-        } else {
-            slide.style.visibility = "hidden";
-        }
-    });
-}
-showSlide(currentSlide);
-
+const sliderElement = document.getElementById("curr_slider_image");
 function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
+  currentSlide = (currentSlide + 1) % images.length;
+  console.log(currentSlide);
+  sliderElement.src = images[currentSlide];
 }
 
 function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
+  currentSlide = (currentSlide - 1 + images.length) % images.length;
+  sliderElement.src = images[currentSlide];
 }
