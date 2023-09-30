@@ -10,7 +10,7 @@ body{
 }
 
 #d1{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     width: 30%;
     height: 400px;
     margin: 50px auto;
