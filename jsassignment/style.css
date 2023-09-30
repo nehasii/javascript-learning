@@ -1,0 +1,49 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+}
+
+#d1{
+    border: 2px solid black;
+    width: 30%;
+    height: 400px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+#d1 #image{
+    width: 95%;
+    height: 85%;
+    position: absolute;
+    top: 10px;
+    visibility: hidden;
+}
+
+#d2{
+    /* border: 2px solid black; */
+    width: 100px;
+    margin: 50px auto;
+    position: relative;
+    bottom: 90px;
+    left: 10px ;
+}
+
+
+#tglbtn{
+    position: absolute;
+}
+
+#image2{
+    visibility: hidden;
+}
+
