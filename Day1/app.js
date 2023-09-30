@@ -11,7 +11,8 @@ console.log(c)
 
 var d= ()=>{}
 console.log(d)
-
+ 
+// this is a test for console logging stuff
 var e= []
 console.log(e)
 
