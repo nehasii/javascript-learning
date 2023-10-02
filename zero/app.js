@@ -189,7 +189,7 @@
 
 
 // ! Date 
-let d=new Date()
+// let d=new Date()
 
 
 // let s;
@@ -261,3 +261,7 @@ let d=new Date()
 
 // document.title = "DOM"
 
+// ! local storage
+// localStorage.setItem('sname', "neha")
+// localStorage.setItem('age', "21")
+// console.log(localStorage.key(1));
