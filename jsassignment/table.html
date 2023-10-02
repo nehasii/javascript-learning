@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 8px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="searchProduct"
+      placeholder="Search for products"
+      oninput="getProducts()"
+    />
+
+    <table>
+      <thead>
+        <tr>
+          <!DOCTYPE html>
+          <html lang="en">
+            <head>
+              <meta charset="UTF-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>Product List</title>
+              <style>
+                table,
+                th,
+                td {
+                  border: 1px solid black;
+                  border-collapse: collapse;
+                  padding: 8px;
+                  text-align: left;
+                }
+              </style>
+            </head>
+            <body>
+              <!-- <input
+                type="text"
+                id="searchProduct"
+                placeholder="Search for products"
+                oninput="getProducts()"
+              /> -->
+          
+              <table>
+                <thead>
+                  <tr>
+                    <th>No.</th>
+                    <th>Product Name</th>
+                    <th>Color</th>
+                    <th>Image</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody id="productDetails">
+                  <!-- Product rows will be inserted here by JavaScript -->
+                </tbody>
+              </table>
+          
+              <h3>Total Price: <span id="total"></span></h3>
+
+
+    <script>
+      let products = [
+        {
+          id: 1,
+          pname: "samsung galaxy M04 mobile",
+          color: "gray",
+          price: 6000,
+          imgurl:
+            "https://m.media-amazon.com/images/I/814ePfNubRL._AC_UY218_.jpg",
+        },
+        {
+          id: 2,
+          pname: "zebronics earphones",
+          color: "red",
+          price: 1000,
+          imgurl:
+            "https://m.media-amazon.com/images/I/61jv8Sj964L._AC_UY218_.jpg",
+        },
+        {
+          id: 3,
+          pname: "boat watch",
+          color: "orange",
+          price: 800,
+          imgurl: "https://m.media-amazon.com/images/I/71qOBYuPEML._SX679_.jpg",
+        },
+        {
+          id: 4,
+          pname: "redmi 12C Mobile",
+          color: "green",
+          price: 8000,
+          imgurl:
+            "https://m.media-amazon.com/images/I/81YEyQqHjPL._AC_UY218_.jpg",
+        },
+        {
+          id: 5,
+          pname: "hammer watch",
+          color: "black",
+          price: 600,
+          imgurl: "https://m.media-amazon.com/images/I/61jQim6YPnL._SX679_.jpg",
+        },
+        {
+          id: 6,
+          pname: "boat earphones",
+          color: "black",
+          price: 1500,
+          imgurl:
+            "https://m.media-amazon.com/images/I/51TRuzlKyvS._AC_UY218_.jpg",
+        },
+        {
+          id: 7,
+          pname: "Oppo A78 5G Mobile",
+          color: "black",
+          price: 18000,
+          imgurl:
+            "https://m.media-amazon.com/images/I/81LrmorQeQL._AC_UY218_.jpg",
+        },
+        {
+          id: 8,
+          pname: "noise watch",
+          color: "silver",
+          price: 700,
+          imgurl:
+            "https://m.media-amazon.com/images/I/51WeBL7Q04L._SX300_SY300_QL70_FMwebp_.jpg",
+        },
+      ];
+ //!let productDetails = document.getElementById("productDetails"); //tbody is stored
+      let total = document.getElementById("total");
+
+      products.map(({ id, pname, price, color, imgurl }, index) => {
+        productDetails.innerHTML += `
+          <tr>
+              <td>${index + 1}</td>
+              <td>${pname}</td>
+              <td>${color}</td>
+              <td>
+              <img height="200px" width="200px" src=${imgurl} alt="">
+              </td>
+              <td>${price}</td>
+        </tr>
+          `;
+      });
+
+     // let prices = products.map(({ price }) => {
+      //  return price;
+      //});
+      let totalPrice = 0;
+      for({price} of products){
+        totalPrice += price;
+      }
+//let totalPrice = prices.reduce((a, b) => {
+        //return a + b;
+      //}, 0);
+
+      total.innerText = totalPrice;
+
+      console.log(prices);
+
+      console.log(totalPrice);
+
+      function getProducts() {
+        productDetails.innerHTML = "";
+        // let productDetails=document.getElementById("productDetails");//tbody is stored
+        let searchProduct = document.getElementById("searchProduct");
+        let searchValue = searchProduct.value;
+
+        console.log(searchValue);
+        let filteredProducts = products.filter(({ pname, color, price }) => {
+          // return pname===searchValue
+
+          return (
+            pname.toLowerCase().includes(searchValue.toLowerCase()) ||
+            color.includes(searchValue.toLowerCase()) ||
+            price === Number(searchValue)
+          );
+        });
+
+        let filteredPrices = filteredProducts.map(({ price }) => price);
+
+        let filterdProductsTotal = filteredPrices.reduce((a, b) => {
+          return a + b;
+        }, 0);
+        total.innerText = filterdProductsTotal;
+        if (!filteredProducts.length) {
+          productDetails.innerHTML = `
+              <h1 style=color:red;text-transform:capitalize>${searchValue} Not Found</h1>`;
+        }
+
+        filteredProducts.map(({ id, pname, price, color, imgurl }, index) => {
+          productDetails.innerHTML += `
+          <tr>
+              <td>${index + 1}</td>
+              <td>${pname}</td>
+              <td>${color}</td>
+              <td>
+              <img height="200px" width="200px" src=${imgurl} alt="">
+              </td>
+              <td>${price}</td>
+        </tr>
+          `;
+        });
+      }
+    </script>
+  </body>
+</html>          

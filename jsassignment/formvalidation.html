@@ -1,0 +1,43 @@
+<html>
+  <script>
+    const validationSettings = {
+      phone: {
+        pattern: /^[6-9]\d{9}$/,
+        errorMessage: "your phone number is invalid",
+        successMessage: "your phone number is valid",
+      },
+      email: {
+        pattern: /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
+        errorMessage: "your email is invalid",
+        successMessage: "your email is valid",
+      },
+    };
+
+    function validateField(type, id) {
+      const field = document.getElementById(id);
+      const messageFeild = document.getElementById(id + "Message");
+      const fieldSetting = validationSettings[type];
+      if (fieldSetting.pattern.test(field.value)) {
+        messageFeild.style.visibility = "visible";
+        messageFeild.style.color = "green";
+        messageFeild.innerHTML = fieldSetting.successMessage;
+      } else {
+        messageFeild.style.visibility = "visible";
+        messageFeild.style.color = "red";
+        messageFeild.innerHTML = fieldSetting.errorMessage;
+      }
+    }
+
+    function validate() {
+        validateField("phone", "phone");
+      validateField("email", "email");
+    }
+  </script>
+  <input id="email" />
+  <p id="emailMessage" style="visibility: hidden"></p>
+
+  <input id="phone" />
+
+  <p id="phoneMessage" style="visibility: hidden"></p>
+  <button onclick="validate()">submit</button>
+</html>
