@@ -265,3 +265,14 @@
 // localStorage.setItem('sname', "neha")
 // localStorage.setItem('age', "21")
 // console.log(localStorage.key(1));
+
+// ! CLOSURE
+// function test(){
+//     let a = 40;
+//     return function(){
+//         let b = 30;
+//         console.log(a+b);
+//     }
+// }
+// let res = test()
+// res();
