@@ -8,7 +8,7 @@ fetch('https://fakestoreapi.com/products')
         const productDiv = document.createElement('div');
         productDiv.className = 'product';
 
-        const productTitle = document.createElement('h2');
+        const productTitle = document.createElement('h3');
         productTitle.textContent = product.title;
         productDiv.appendChild(productTitle);
 
